@@ -1,4 +1,4 @@
-# *INFO-6150_KADHAR KANI FAIYAZ_002299454*
+# *INFO6150_KADHAR_KANI FAIYAZ_002299454*
 ## *Assignment I - Neuromorphic Lab Website* ##
 ### *Files :*
 > *HTML & CSS Files :*
