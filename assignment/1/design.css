@@ -1,0 +1,380 @@
+@import url(https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&display=swap);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Crimson Pro', sans-serif;
+}
+
+body {
+    background: #fff7f7;
+    color:#ffffff;   
+}
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+.header{
+    width: 100%; 
+    padding: 2px 10%;
+    background:#000;
+    background-position: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+menu{
+    padding: 2px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+}
+
+.namelogo{
+    font-size:30px;
+    color: #ffffff;
+    text-decoration:none;
+    font-weight: 600;
+}
+.header ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+.header ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 40px;
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(224, 224, 224));
+    font-size: 14 px;
+    border-radius: 20px;
+}
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+.home{
+    height: 100vh;
+    background: url('image/background1.jpg') no-repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+
+}
+.hcontent{
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.hcontent h1{
+    font-size: 56px;
+    font-weight: 700;
+    text-shadow: rgb(227, 227, 227) 4px 0 4px;
+}
+
+.hcontent p{
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: 300;
+    color:#ffffff;
+}
+
+.transanim{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+
+.animbutton{
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color:#000000;
+    background-color: rgb(255, 255, 255);
+    font-size: 14 px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+    margin-top: 30px;
+    font-size: 14 px;
+}
+
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translate(30px);
+    }
+    
+}
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+footer{
+    background: #000000;
+    /* height: 100vw; */
+    width: 98.9vw;
+    padding-top: 40px;
+    color: #ffffff;
+}
+.footertop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+
+}
+.footertop ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+.footertop ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+}
+.footerbottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+
+}
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+.home1{
+    height: 100vh;
+    background: url('image/background2.jpg') no-repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+
+}
+.hcontent1{
+    max-width: 500px;
+    justify-content: right;
+    flex-direction: column;
+    text-align: right;
+    /* margin-inline-start: 10%; */
+    margin-top: 20px;
+}
+.hcontent1 h1{
+    font-size: 35px;
+    font-weight: 700;
+    text-shadow: rgb(255, 255, 255) 1px 0 10px;
+}
+
+.hcontent1 h2{
+    font-size: 35px;
+    font-weight: 700;
+    text-shadow: rgb(255, 255, 255) 1px 0 10px;
+}
+
+.hcontent1 p{
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 300;
+    color:#ffffff;
+}
+
+.transanim1{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+.animbutton1{
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color:#000000;
+    background-color: rgb(255, 255, 255);
+    font-size: 14 px;
+    border-radius: 30px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+    margin-top: 30px;
+    font-size: 14 px;
+}
+
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translate(30px);
+    }
+    
+}
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+.home1video{
+    border-color: #000;
+}
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+.home2{
+    height: 100vh;
+    background: url('image/background4.jpg') no-repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    font-size: 25px;
+    /* filter: blur(5px); */
+}
+details {
+    font-size: large;
+  }
+  
+summary {
+color: rgb(255, 255, 255);
+font-size: 25px;
+font-weight: 700;
+cursor: pointer;
+margin-top: 30px;
+}
+
+summary:hover {
+background-color: #464646;
+
+}
+details p {
+margin-top: 30px;
+font-size: 20px;
+}
+
+.home2 h1{
+    text-shadow: rgb(227, 227, 227) 4px 0 4px;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+.contact{
+    height: 50vh;
+    background: url('image/background2.jpg') no-repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+
+}
+.support{
+    height: 50vh;
+    background: url('image/background3.jpg') no-repeat;
+    background-size: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.support h1{
+    font-size: 50px;
+    font-weight: 700;
+    text-shadow: rgb(227, 227, 227) 2px 0 2px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.support h2{
+    font-size: 30px;
+    font-weight: 700;
+    text-shadow: rgb(227, 227, 227) 1px 0 1px;
+    margin-top: 20px;
+}
+
+.form{
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.form h1{
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: rgb(227, 227, 227) 1px 0 1px;
+    margin-top: 20px;
+}
+.form h2{
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: rgb(227, 227, 227) 1px 0 1px;
+    margin-top: 20px;
+}
+.form a{
+    margin-inline-start: 30px;
+}
+.support input{
+    margin-top: 20px;
+}
+
+.form1{
+    position: relative;
+    justify-content: right;
+    flex-direction: column;
+    text-align: right;
+    margin-inline-start: 60%;
+    margin-top: 10px;
+}
+.form1 h1{
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: rgb(227, 227, 227) 1px 0 1px;
+    margin-top: 20px;
+}
+input{
+    width: 100%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+.transanim2{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+    display: block;
+    text-align: center;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+.social-link {
+    padding: 10px;
+  }
+  
+.social-link img {
+    width: 30px;
+    justify-content: space-between;
+    height: 30px;
+}
+.animbutton2{
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color:#000000;
+    background-color: rgb(255, 255, 255);
+    font-size: 14 px;
+    border-radius: 30px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+    margin-top: 5px;
+    font-size: 14 px;
+    margin-inline-end: 100%;
+
+}

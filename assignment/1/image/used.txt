@@ -1,0 +1,17 @@
+Below, HTML and HTML5 controls MUST be there, and feel free to add more HTML and HTML5 controls.
+Favicon
+Images
+Hyperlink
+Button
+video
+header
+footer
+menu
+Table
+summary
+tel for contact information
+mailto for contact information
+Form
+______________________________________________________________________________________________
+
+audio
