@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        label {
+            float: left;
+            width: 150px;
+        }
+
+        .checkbox-items {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table {
+            display: none;
+        }
+
+        #container {
+            width: 700px;
+            margin: auto;
+            background-color: beige;
+        }
+
+        #additionalMentions {
+            height: 100px;
+            padding: 10px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        main {
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body id="container">
+    <main>
+        <h1 style="font-size: 1.5rem; color: black;">Hi,</h1>
+        <h3 style="font-size: 1rem; color: black;">Please provide your takeaway details</h3>
+        <br /><br />
+
+        <form id="myForm">
+            <label>Title*:</label>
+            <input type="radio" name="title" id="miss" value="miss" required="required" />
+            Miss
+            <input type="radio" name="title" id="mr" value="mr" required="required" />
+            Mr.
+            <input type="radio" name="title" id="mrs" value="mrs" required="required" />
+            Mrs. <br /><br />
+
+            <label for="firstName">First Name<sup>*</sup>:</label>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" required />
+            <br /><br />
+
+            <div id="error_firstName" style="color: red; display: none">
+                Invalid First Name
+                <br /><br />
+            </div>
+
+            <label for="emailId">Email Id<sup>*</sup>:</label>
+            <input type="text" name="emailId" id="emailId" placeholder="name@northeastern.edu" required />
+            <br /><br />
+
+            <div id="error_emailId" style="color: red; display: none">
+                Invalid Email Address
+                <br /><br />
+            </div>
+
+            <label for="phoneNumber">Phone Number<sup>*</sup>:</label>
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" required />
+            <br /><br />
+
+            <div id="error_phoneNumber" style="color: red; display: none">
+                Invalid Phone Number
+                <br /><br />
+            </div>
+
+            <label for="select-box">Select your Food<sup>*</sup>:</label>
+            <select id="selectBox">
+                <option value="">-- Select --</option>
+                <option value="idly">idly</option>
+                <option value="vadai">vadai</option>
+                <option value="dosa">dosa</option>
+                <option value="pongal">pongal</option>
+                <option value="chappathi">chappathi</option>
+            </select>
+            <br /><br />
+
+            <div id="error_selectBox" style="color: red; display: none">
+                Invalid Option Selected
+                <br /><br />
+            </div>
+
+            <div class="checkbox-items" id="checkboxItems"></div>
+            <br /><br />
+
+            <div id="error_checkBox" style="color: red; display: none">
+                Invalid Checkbox Selection
+                <br /><br />
+            </div>
+
+
+            <div id="additionalMentionsArea" style="display: none">
+                <label for="additionalMentions">Additional Mentions<sup>*</sup>:</label>
+                <textarea id="additionalMentions" name="additionalMentions" placeholder="Any additional mentions, like added sugar, added ice, etc" required></textarea>
+                <br /><br />
+            </div>
+
+            <label for="streetAddress1">Street Address 1<sup>*</sup>:</label>
+            <input type="text" id="streetAddress1" name="streetAddress1" placeholder="360 Huntington Avenue" required />
+            <br /><br />
+
+            <div id="error_streetAddress1" style="color: red; display: none">
+                Invalid Street Address 1
+                <br /><br />
+            </div>
+
+            <label for="streetAddress2">Street Address 2:</label>
+            <input type="text" id="streetAddress2" name="streetAddress2" placeholder="Street Area" />
+            <br /><br />
+
+            <div id="error_streetAddress2" style="color: red; display: none">
+                Invalid Street Address 2
+                <br /><br />
+            </div>
+
+            <label for="city">City<sup>*</sup>:</label>
+            <input type="text" id="city" name="city" placeholder="Boston" required />
+            <br /><br />
+
+            <div id="error_city" style="color: red; display: none">
+                Invalid City
+                <br /><br />
+            </div>
+
+            <label for="state">State<sup>*</sup>:</label>
+            <input type="text" id="state" name="state" placeholder="MA" required />
+            <br /><br />
+
+            <div id="error_state" style="color: red; display: none">
+                Invalid State
+                <br /><br />
+            </div>
+
+            <label for="zip">Zip Code<sup>*</sup>:</label>
+            <input type="text" id="zipCode" name="zip" placeholder="xxxxx" required />
+            <br /><br />
+
+            <div id="error_zipCode" style="color: red; display: none">
+                Invalid Zip Code
+                <br /><br />
+            </div>
+
+            <br /><br />
+            <input id="submitButton" type="Submit" value="Submit My Details" disabled>
+            <input type="Reset" onclick="resetTable()" />
+            <br /><br />
+
+            <br /><br />
+        </form>
+
+        <div id="table" style="display: none;">
+            <div>Confirm your order details</div>
+            <br /><br />
+            <div>
+                <table id="myTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Order Details</th>
+                    </tr>
+                </table>
+                <br /><br />
+            </div>
+            <div>
+                <button type="button" onclick="saveTable()" id="proceedButton" disabled>Proceed</button>
+                <br /><br />
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var form = document.getElementById("myForm");
+        form.addEventListener("submit", submitted);
+
+        var additionalMentionsDiv = document.getElementById('additionalMentionsArea');
+
+        var submitButton = document.getElementById('submitButton');
+        var proceedButton = document.getElementById('proceedButton');
+        var table = document.getElementById('myTable');
+
+        var submitButtonClicked = false;
+
+        var validName = false;
+        var validEmail = false;
+        var validPhone = false;
+        var validSelection = false;
+        var validStreetAddress1 = false;
+        var validCity = false;
+        var validState = false;
+        var validZipCode = false;
+
+        var regExName = /^[a-zA-Z]+$/;
+        var regExEmail = /([\w\.]+)@northeastern\.edu$/;
+        var regExPhone = /\d{3}-?\d{3}-\d{4}$/;
+        var regexStreetAddress1 = /^[a-zA-Z0-9\s]+$/;
+        var regexCity = /^[A-Za-z]{3,30}$/;
+        var regexState = /^[A-Za-z]{2}$/;
+        var regexZipCode = /^\d{5}$/;
+
+        var firstName = document.getElementById("firstName");
+        var emailId = document.getElementById("emailId");
+        var phoneNumber = document.getElementById("phoneNumber");
+        var streetAddress1 = document.getElementById("streetAddress1");
+        var streetAddress2 = document.getElementById("streetAddress2");
+        var city = document.getElementById("city");
+        var state = document.getElementById("state");
+        var zipCode = document.getElementById("zipCode");
+
+        var selectBox = document.getElementById("selectBox");
+
+        const FoodInfo = getFoodInfo();
+        var selectedCheckboxItem = [];
+
+        firstName.addEventListener("input", validate);
+        emailId.addEventListener("input", validate);
+        phoneNumber.addEventListener("input", validate);
+        streetAddress1.addEventListener("input", validate);
+        city.addEventListener("input", validate);
+        state.addEventListener("input", validate);
+        zipCode.addEventListener("input", validate);
+
+        selectBox.addEventListener("change", validate);
+
+        function displayCheckbox() {
+            const checkboxItems = document.getElementById("checkboxItems");
+            checkboxItems.style.display = "flex";
+            checkboxItems.innerHTML = "";
+
+            const selectedOption = selectBox.options[selectBox.selectedIndex];
+            const selectedFoodInfo = FoodInfo[selectedOption.value];
+
+            for (const FoodSize in selectedFoodInfo) {
+                if (selectedFoodInfo.hasOwnProperty(FoodSize)) {
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.name = FoodSize;
+                    checkbox.value = `${selectedOption.value}_${FoodSize}`;
+
+                    const label = document.createElement("label");
+                    label.appendChild(checkbox);
+                    label.appendChild(
+                        document.createTextNode(
+                            `${FoodSize} - $${selectedFoodInfo[FoodSize].toFixed(2)}`
+                        )
+                    );
+                    checkboxItems.appendChild(label);
+                }
+            }
+
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.addEventListener("change", selectedCheckboxPortion);
+            });
+        }
+
+        function hideCheckBox() {
+            const checkboxItems = document.getElementById("checkboxItems");
+            checkboxItems.style.display = "none";
+            additionalMentionsDiv.style.display = "none";
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = false;
+            });
+            selectedCheckboxItem = [];
+            document.getElementById("error_checkBox").style.display = "none";
+        }
+
+        function selectedCheckboxPortion() {
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            if ([...checkboxes].some(checkbox => checkbox.checked)) {
+                additionalMentionsDiv.style.display = 'block';
+            } else {
+                additionalMentionsDiv.style.display = 'none';
+            }
+
+            const selectedPortion = document.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            );
+            let totalAmount = 0;
+            selectedCheckboxItem = [];
+
+            selectedPortion.forEach((portion) => {
+                const [FoodName, FoodSize] = portion.value.split("_");
+                const FoodPrice = FoodInfo[FoodName][FoodSize];
+                selectedCheckboxItem.push(
+                    `${FoodName}_${FoodSize} : $${FoodPrice.toFixed(2)}`
+                );
+                totalAmount += FoodPrice;
+            });
+            selectedCheckboxItem.push(`Total : $${totalAmount.toFixed(2)}`);
+
+            if (selectedPortion.length === 0) {
+                document.getElementById("error_checkBox").style.display = "block";
+                this.style.border = "2px solid red";
+                validSelection = false;
+            } else {
+                document.getElementById("error_checkBox").style.display = "none";
+                this.style.border = "";
+                validSelection = true;
+            }
+        }
+
+        function validate(e) {
+            var value = e.target.value;
+            var type = this.id;
+            var errorMessage = "error_" + type;
+
+            switch (type) {
+                case "firstName":
+                    if (!value.trim().match(regExName)) {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validName = false;
+                    } else {
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validName = true;
+                        checkValidation();
+                    }
+                    break;
+
+                case "emailId":
+                    if (!value.trim().match(regExEmail)) {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validEmail = false;
+                    } else {
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validEmail = true;
+                        checkValidation();
+                    }
+                    break;
+
+                case "phoneNumber":
+                    if (!value.trim().match(regExPhone)) {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validPhone = false;
+                    } else {
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validPhone = true;
+                        checkValidation();
+                    }
+                    break;
+
+                case "selectBox":
+                    if (value === "") {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validSelection = false;
+                    } else {
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validPhone = true;
+                        checkValidation();
+                        displayCheckbox();
+                        checkValidation();
+                    }
+                    break;
+
+                case "streetAddress1":
+                    if (!value.trim().match(regexStreetAddress1)) {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validStreetAddress1 = false;
+                    } else {
+                        console.log('true');
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validStreetAddress1 = true;
+                        checkValidation();
+                    }
+                    break;
+
+                case "city":
+                    if (!value.trim().match(regexCity)) {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validCity = false;
+                    } else {
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validCity = true;
+                        checkValidation();
+                    }
+                    break;
+
+                case "state":
+                    if (!value.trim().match(regexState)) {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validState = false;
+                    } else {
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validState = true;
+                        checkValidation();
+                    }
+                    break;
+
+                case "zipCode":
+                    if (!value.trim().match(regexZipCode)) {
+                        document.getElementById(errorMessage).style.display = "block";
+                        this.style.border = "2px solid red";
+                        validZipCode = false;
+                    } else {
+                        document.getElementById(errorMessage).style.display = "none";
+                        this.style.border = "";
+                        validZipCode = true;
+                        checkValidation();
+                    }
+                    break;
+
+            }
+        }
+
+        function getFoodInfo() {
+            return {
+                idly: {
+                    idly: 5.99,
+                    Podiidly: 6.99,
+                    Sambaridly: 8.99,
+                },
+                vadai: {
+                    Vadai: 3.99,
+                    SambarVadai: 4.99,
+                    CurdVadai: 5.99,
+                },
+                dosa: {
+                    kaldosa: 3.99,
+                    roast: 5.99,
+                    masalaroast: 6.99,
+                },
+                pongal: {
+                    pongal: 10.79,
+                    SambarPongal: 12.79,
+                },
+                chappathi: {
+                    ChappathiReg: 4.49,
+                    ChilliChappathi: 8.99,
+                    AlooChappathi: 8.99,
+                },
+            };
+        }
+
+        function checkValidation() {
+            if (validEmail &&
+                validName &&
+                validPhone &&
+                validSelection &&
+                validStreetAddress1 &&
+                validZipCode &&
+                validCity
+            ) {
+                console.log('validation successful');
+                submitButton.disabled = false;
+                proceedButton.disabled = submitButtonClicked ? false : true;
+                return true;
+            }
+            else {
+                submitButton.disabled = true;
+                proceedButton.disabled = true;
+                return false;
+            }
+        }
+
+        function submitted(e) {
+            e.preventDefault();
+            if (
+                checkValidation()
+            ) {
+                submitButtonClicked = true;
+                submitButton.disabled = true;
+                showTable();
+            } else {
+                alert("Enter valid data");
+            }
+        }
+
+        function resetTable() {
+            if (checkValidation()) {
+                additionalMentionsDiv.style.display = "none";
+                if (table.rows.length <= 2) {
+                    removeAllTableRows();   
+                } else {
+                    setValidationFalse();
+                    table.deleteRow(table.rows.length - 1);
+                }
+                submitButton.disabled = true;
+                proceedButton.disabled = true;
+            }
+        }
+
+        function removeAllTableRows() {
+            var rowsToDelete = table.querySelectorAll("tr");
+            document.getElementById("table").style.display = "none";
+            for (let i = rowsToDelete.length - 1; i >= 0; i--) {
+                var row = rowsToDelete[i];
+                if (!row.querySelector("th")) {
+                    table.removeChild(row);
+                }
+            }
+            hideCheckBox();
+        }
+
+        function showTable() {
+            proceedButton.disabled = false;
+            document.getElementById("table").style.display = "block";
+            var address =
+                streetAddress1.value + "\n" +
+                (streetAddress2.value ? streetAddress2.value + "\n" : "") +
+                city.value + "\n" +
+                zipCode.value;
+
+            var additionalComments = "\n\nAdditional Mentions :\n" + document.getElementById('additionalMentions').value;
+
+            document.getElementById("table").style.display = "block";
+            var tableRow = document.createElement("tr");
+            selectedCheckboxItem.push(additionalComments)
+            console.log(selectedCheckboxItem);
+            var tableData = [firstName.value, emailId.value, phoneNumber.value, address, selectedCheckboxItem];
+            console.log(tableData);
+            tableData.forEach((tdData) => {
+                var td = document.createElement("td");
+                if (Array.isArray(tdData)) {
+                    td.innerHTML = tdData.join("<br>");
+                } 
+                else {
+                    td.textContent = tdData;
+                }
+                tableRow.appendChild(td);
+            });
+
+            table.appendChild(tableRow);
+        }
+
+        function saveTable() {
+            alert("Order Placed Successfully");
+            setValidationFalse();
+            hideCheckBox();
+            form.reset();
+            proceedButton.disabled = true;
+            submitButton.disabled = true;
+            submitButtonClicked = false;
+        }
+
+        function setValidationFalse() {
+            validName = false;
+            validEmail = false;
+            validPhone = false;
+            validSelection = false;
+            validStreetAddress1 = false;
+            validCity = false;
+            validState = false;
+            validZipCode = false;
+        }
+
+    </script>
+</body>
+
+</html>
