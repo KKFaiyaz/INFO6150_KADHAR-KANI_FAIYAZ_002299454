@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  bgColor: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.showcase {
+  background-color: white;
+  height: 72px;
+}
+.showcase nav {
+  display: flex;
+  align-items: none;
+  justify-content: space-between;
+}
+.showcase ul {
+  display: flex;
+  list-style: none;
+}
+.showcase li {
+  padding: 15px;
+}
+.showcase a {
+  font-family: "Dancing Script", cursive;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+}
+.showcase .logo {
+  display: flex;
+  width: 6.5rem;
+  height: auto;
+  float: right;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.section1 {
+  position: relative;
+  height: 42.5rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background: url("../images/background1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 190px 0px;
+}
+.section1 .hover-gallery {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section1 .hover-gallery .image {
+  width: 11rem;
+  height: 11rem;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+  transform-origin: top center;
+}
+.section1 .hover-gallery .image .hover-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+.section1 .hover-gallery .image .hover-image:hover {
+  transform: scale(1.1);
+}
+.section1 .hover-gallery .image:nth-child(1) {
+  position: absolute;
+  left: 19rem;
+  bottom: 6rem;
+}
+.section1 .hover-gallery .image:nth-child(2) {
+  position: absolute;
+  left: 13rem;
+  bottom: -5.5rem;
+}
+.section1 .hover-gallery .image:nth-child(3) {
+  position: absolute;
+  left: 19rem;
+  bottom: -17rem;
+}
+.section1 .hover-gallery .white-button {
+  position: absolute;
+  left: 41rem;
+  bottom: -20rem;
+  background-color: #fff;
+  font-family: "Dancing Script", cursive;
+  font-size: larger;
+  font-weight: bolder;
+  color: #333;
+  padding: 20px 40px;
+  border: none;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transition: transform 0.3s ease-in-out;
+}
+.section1 .hover-gallery .white-button:hover {
+  transform: scale(1.05);
+}
+
+.section_content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+}
+.section_content .section_media {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.section_content .section_media .default-image,
+.section_content .section_media .hover-video {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+.section_content .section_media .hover-video {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.section_content .section_media:hover .default-image {
+  opacity: 0;
+}
+.section_content .section_media:hover .hover-video {
+  opacity: 1;
+}
+
+.restaurant-reviews {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-evenly;
+  padding: 20px;
+  background: url("../images/background2.jpg");
+  background-size: cover;
+}
+
+.review {
+  max-width: 300px;
+  background-color: #fff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  margin-left: 2rem;
+}
+.review img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.review .review-content {
+  padding: 20px;
+}
+.review .review-content h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.review .review-content p {
+  margin: 0;
+  font-size: 14px;
+}
+.review:hover {
+  transform: scale(1.05);
+}
+
+/* Style for the video section */
+.video-section {
+  position: relative;
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  /* Style for the video */
+}
+.video-section video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.video-section .claim-offer-button {
+  position: absolute;
+  top: 55%;
+  left: 90%;
+  transform: translateY(-50%);
+  transition: transform 0.2s; /* Add a smooth transition */
+}
+.video-section .claim-offer-button img {
+  max-width: 100px; /* Ensure the image doesn't exceed the container's width */
+}
+.video-section .claim-offer-button:hover {
+  transform: translateY(-50%) scale(1.1); /* Scale the image on hover */
+}
+
+footer {
+  background: #000000;
+  height: 20rem;
+  padding-top: 2.5rem;
+  color: #ffffff;
+}
+footer .footertop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 0rem;
+}
+footer .footertop .namelogo1 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  max-width: 40%;
+  margin-bottom: 2rem;
+}
+footer .footertop ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 15px;
+}
+footer .footertop ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+}
+footer .footerbottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+  font-size: small;
+}
+
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.scroll-to-top img {
+  width: 40px;
+  height: auto;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+}
+.scroll-to-top:hover img {
+  background-color: #9b9b9b;
+}
+
+.reservation-section .reservation-form .form-field input, .reservation-section .reservation-form .form-field select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.reservation-section {
+  background-color: white;
+  font-family: "Dancing Script", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42rem;
+  padding: 20px;
+  background-image: url(../images/wood.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.reservation-section .reservation-form {
+  background-color: #ffffff;
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.reservation-section .reservation-form .form-title {
+  color: #000000;
+  padding: 15px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 1.2rem;
+}
+.reservation-section .reservation-form .form-field {
+  margin: 7px 0;
+}
+.reservation-section .reservation-form .form-field label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.reservation-section .reservation-form .form-field input:focus, .reservation-section .reservation-form .form-field select:focus {
+  border-color: #007BFF;
+}
+.reservation-section .reservation-form .form-actions {
+  text-align: center;
+}
+.reservation-section .reservation-form .form-actions .white-button {
+  font-family: "Dancing Script", cursive;
+  font-size: larger;
+  font-weight: bolder;
+  color: #333;
+  padding: 20px 40px;
+  border: none;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transition: transform 0.3s ease-in-out;
+}
+.reservation-section .reservation-form .form-actions button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  border: none;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Dancing Script", cursive;
+  box-shadow: 3px 3px 3px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+.reservation-section .reservation-form .form-actions button:hover {
+  background-color: #aaaaaa;
+}/*# sourceMappingURL=style.css.map */

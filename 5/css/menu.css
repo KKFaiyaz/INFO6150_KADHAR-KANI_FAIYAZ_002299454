@@ -1,0 +1,309 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.showcase {
+  height: 72px;
+  background-color: rgb(255, 255, 255);
+}
+.showcase nav {
+  display: flex;
+  align-items: none;
+  justify-content: space-between;
+}
+.showcase nav ul {
+  display: flex;
+  list-style: none;
+}
+.showcase nav ul li {
+  padding: 15px;
+}
+.showcase nav ul li a {
+  font-family: "Dancing Script", cursive;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+}
+.showcase .logo {
+  display: flex;
+  width: 6.5rem;
+  height: auto;
+  float: right;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.menumain {
+  position: relative;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.menumain .background-image {
+  background-image: url("../images/menu/menuhome.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 1;
+}
+.menumain h1 {
+  font-size: 5rem;
+  color: aliceblue;
+  font-family: "Dancing Script", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.menuitembar {
+  background-color: white;
+  height: 72px;
+}
+.menuitembar nav {
+  display: flex;
+  align-items: none;
+  justify-content: space-between;
+}
+.menuitembar nav ul {
+  display: flex;
+  list-style: none;
+}
+.menuitembar nav ul li {
+  padding: 15px;
+}
+.menuitembar nav ul li a {
+  font-family: "Dancing Script", cursive;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+}
+.menuitembar .logo {
+  display: flex;
+  width: 6.5rem;
+  height: auto;
+  float: right;
+}
+
+.prev-button, .next-button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.prev-button.prev-button, .next-button.prev-button {
+  left: 10px;
+}
+.prev-button.next-button, .next-button.next-button {
+  right: 10px;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slideshow .carousel {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+}
+.slideshow .menu-title {
+  font-size: 24px;
+  cursor: pointer;
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  line-height: 1.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.slideshow .menu-item {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: left;
+  padding: 20px;
+  width: 300px;
+  margin-right: 20px;
+}
+.slideshow .menu-item img {
+  max-height: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.slideshow .menu-item h3 {
+  margin: 10px 0;
+}
+.slideshow .menu-item .add-button {
+  display: block;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.slideshow .menu-item .add-button:hover {
+  background: #0056b3;
+}
+
+.gallery {
+  display: grid;
+  grid-auto-rows: 10rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.menu-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  transition: background-color 0.3s;
+}
+.menu-item:hover {
+  background-color: #ff5733;
+}
+.menu-item img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+.menu-item .item-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+.menu-item .item-details a {
+  font-family: "Dancing Script", cursive;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.menu-item .item-details h3 {
+  font-size: 3rem;
+  margin: 0;
+}
+.menu-item .item-details p {
+  font-size: 0.8rem;
+}
+
+.menu-item:hover img {
+  transform: scale(1.1);
+}
+.menu-item:hover .item-details {
+  opacity: 1;
+}
+
+:root {
+  --base-color: map-get($color-map, base-color);
+  --hover-color: map-get($color-map, hover-color);
+}
+
+.menu-item {
+  transition: background-color 0.3s;
+}
+.menu-item:hover {
+  background-color: var(--hover-color);
+}
+
+footer {
+  background-color: rgb(0, 0, 0);
+  height: 20rem;
+  padding-top: 2.5rem;
+  color: #ffffff;
+}
+footer .footertop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 0rem;
+}
+footer .footertop .namelogo1 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  max-width: 40%;
+  margin-bottom: 2rem;
+}
+footer .footertop ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 15px;
+}
+footer .footertop ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+}
+footer .footerbottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+  font-size: small;
+}
+
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.scroll-to-top img {
+  width: 40px;
+  height: auto;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+}
+.scroll-to-top:hover img {
+  background-color: #9b9b9b;
+}/*# sourceMappingURL=menu.css.map */

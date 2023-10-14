@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+$light-color: orange;
+$primary-color: rgb(255, 255, 255);
+$secondary-color: rgb(0, 0, 0);
+$font-stack: Arial, Helvetica, sans-serif;
+$font-menu: 'Dancing Script', cursive;
+$footer-background: #000000;
+$footer-text-color: #ffffff;
+$button-background-color: #ffffff;
+$button-hover-color: #9b9b9b;
+$grid-columns: 3;
+$grid-gap: 20px;
+$transition-duration: 0.3s;
+
+$color-map: (
+  base-color: #333,
+  hover-color: #ff5733,
+  description-background: rgba(0, 0, 0, 0.7),
+  description-text: #fff
+);
+
+$variables-map: (
+base-color: #333,
+hover-color: #ff5733
+);
+
+$dinner-items: (
+("Spaghetti", "spaghetti.jpg"),
+("Pizza", "pizza.jpg"),
+("Steak", "steak.jpg"),
+("Sushi", "sushi.jpg"),
+("Burger", "burger.jpg")
+);

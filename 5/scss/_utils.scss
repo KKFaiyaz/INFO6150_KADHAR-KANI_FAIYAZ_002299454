@@ -1,0 +1,28 @@
+@mixin set-background-color($color) {
+    @if (lightness($color) > 20) {
+        background-color: lighten($color, 20%);
+    }
+    @else {
+        background-color: $color;
+    }
+}
+@mixin set-font-family($font) {
+    font-family: $font;
+}
+
+
+@function calculate-column-span($col-span) {
+    @return $col-span / $grid-columns * 100;
+  }
+  
+@function generate-hover-color($base-color, $hover-color, $percentage) {
+@return mix($base-color, $hover-color, $percentage);
+}
+
+@mixin hover-effect($base-color, $hover-color) {
+transition: background-color $transition-duration;
+
+&:hover {
+    background-color: $hover-color;
+}
+}
