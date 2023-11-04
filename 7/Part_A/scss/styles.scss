@@ -1,0 +1,63 @@
+$primary-color : #4caf50;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: $primary-color;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+  }
+  
+  .login-page, .calculator-page {
+    margin: 50px auto;
+    width: 35vw;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }  
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  .path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 5s forwards;
+  }
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  input, button {
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .btn, .btn:hover,.btn:active, .btn:disabled{
+    background-color: $primary-color !important;
+    border: none;
+    width: 50%;
+  }
+  
+  button {
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+  

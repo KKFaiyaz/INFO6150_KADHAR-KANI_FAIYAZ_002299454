@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="media/css/styles.css">
+<title>Login Page</title>
+</head>
+<body>
+<div class="container mt-5">
+<div class="login-page card p-4">
+    <h2 class="text-center mb-4">LOGIN</h2>
+    <div id="emailaddressDiv" class="d-block">
+        <h6>Emailaddress:</h6>
+        <input type="email" id="email" class="form-control mb-3" placeholder="Northeastern email" name="Emailaddress">
+        <div class="error-message alert alert-danger d-none" id="email-error"></div>
+    </div>
+    <div id="usernameDiv" class="d-none">
+        <h6>Username:</h6>
+        <input type="text" id="username" class="form-control mb-3" placeholder="User Name" minlength="3" maxlength="10" name="Username">
+        <div class="error-message alert alert-danger d-none" id="username-error"></div>
+    </div>
+    <div id="passwordDiv" class="d-none">
+        <h6>Password:</h6>
+        <input type="password" id="password" class="form-control mb-3" placeholder="Password" minlength="8" maxlength="20" name="Password">
+        <div class="error-message alert alert-danger d-none" id="password-error"></div>
+    </div>
+    <div id="confirmPasswordDiv" class="d-none">
+        <h6>Confirm Password:</h6>
+        <input type="password" id="confirmPassword" class="form-control mb-3" placeholder="Confirm Password" minlength="8" maxlength="20" name="Confirm Password">
+        <div class="error-message alert alert-danger d-none" id="confirmPassword-error"></div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button id="loginBtn" class="btn btn-primary btn-block" disabled>Login</button>
+    </div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

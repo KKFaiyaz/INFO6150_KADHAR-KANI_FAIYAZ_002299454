@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stopwatch</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="media/css/styles.css">
+  <style>
+    label {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #timer {
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .btn {
+      font-size: 18px;
+      margin: 5px;
+    }
+
+    .error {
+      color: red;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="glass-effect text-center">
+    <h1 class="text-center">Stopwatch</h1>
+    <label id="timer" class="text-center">00:00:00</label>
+    <br>
+    <button class="btn btn-primary" id="start">Start</button>
+    <button class="btn btn-danger" id="stop">Stop</button>
+    <button class="btn btn-warning" id="reset">Reset</button>
+    <br>
+    <input type="date" id="datePicker" class="form-control w-100 mt-3">
+    <div id="errorMessage" class="error text-center"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    let intervalId; // Variable to store the interval ID
+    let startTime = 0; // Variable to store the start time
+    let elapsedTime = 0; // Variable to store the elapsed time
+    let isRunning = false; // Variable to track if the timer is running
+
+    const currentDate = new Date();
+    const datePicker = $('#datePicker');
+    const formattedCurrentDate = currentDate.toISOString().split('T')[0];
+    datePicker.val(formattedCurrentDate);
+
+    var startButton = $('#start');
+    var stopButton = $('#stop');
+    var resetButton = $('#reset');
+
+    // Start the timer
+    const startTimer = async () => {
+      // Get the current date
+      const currentDate = new Date();
+
+      if (!isRunning) {
+        // If the timer is not running, set the start time to the current time minus the elapsed time
+        startTime = currentDate.getTime() - elapsedTime;
+        isRunning = true;
+      }
+
+      // Create a promise that will be resolved when the timer is stopped
+      const timerPromise = new Promise((resolve, reject) => {
+        // Set the interval function
+        intervalId = setInterval(updateTimer, 1000);
+      });
+
+      // Wait for the promise to be resolved
+      await timerPromise;
+    };
+
+    // Update the timer label
+    const updateTimer = () => {
+      // Get the current time
+      const currentTime = new Date();
+
+      // Calculate the elapsed time
+      elapsedTime = currentTime.getTime() - startTime;
+
+      // Format the elapsed time
+      const formattedTime = new Date(elapsedTime).toISOString().substr(11, 8);
+
+      // Update the timer label
+      $('#timer').text(formattedTime);
+    };
+
+    // Stop the timer
+    const stopTimer = () => {
+      // Clear the interval function
+      clearInterval(intervalId);
+      isRunning = false;
+    };
+
+    // Reset the timer
+    const resetTimer = () => {
+      if (isRunning) {
+        stopTimer();
+        elapsedTime = 0;
+        $('#timer').text('00:00:00');
+        startTimer(); // Start the timer again
+      } else {
+        startTime = 0;
+        elapsedTime = 0;
+        $('#timer').text('00:00:00');
+      }
+    };
+
+
+    // Handle date picker change
+    datePicker.on('change', handleDateChange);
+
+    function handleDateChange() {
+      const selectedDate = new Date(datePicker.val());
+      const currentDate = new Date();
+
+      if (selectedDate > currentDate) {
+        // Display an error message
+        $('#errorMessage').text('Please select a date in the past.');
+        resetTimer(); // Reset the timer
+      } else {
+        // Clear the error message
+        $('#errorMessage').text('');
+      }
+    }
+
+    // Add event listeners to the buttons
+    startButton.on('click', startTimer);
+    stopButton.on('click', stopTimer);
+    resetButton.on('click', resetTimer);
+  </script>
+</body>
+</html>

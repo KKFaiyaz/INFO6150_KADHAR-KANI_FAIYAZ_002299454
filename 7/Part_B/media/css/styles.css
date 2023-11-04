@@ -1,0 +1,13 @@
+body {
+    background: url('../wood.jpg');
+    background-position: center;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    box-shadow: 10px 13px 15px rgba(111, 96, 96, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 100px;
+}

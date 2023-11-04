@@ -1,0 +1,43 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ff3333;
+    border-radius: 10px;
+    background: rgba(226, 224, 224, 0.03);
+    border-radius: 16px;
+    box-shadow: 1px 1px 15px rgba(111, 96, 96, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.error {
+    color: red;
+}
+
+.result {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.operation {
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+}
