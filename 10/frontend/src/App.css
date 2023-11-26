@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.card {
+  border-radius: 1rem;
+  border: 0.5px solid transparent;
+  backdrop-filter: blur(1rem);
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.125);
+  color: #ffffff;
+  padding: 0% 2% 1% 2%;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: '18rem';
+  cursor: pointer;
+  width: '100%';
+  text-decoration: none;
+}
+
+.weather-icon {
+  position: absolute;
+  top: -9%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.card-animation-sunny {
+  animation: sunnyAnimation 2s ease-in-out infinite;
+}
+
+.card-animation-rainy {
+  animation: rainyAnimation 2s ease-in-out infinite;
+}
+
+.card-animation-cloudy {
+  animation: cloudyAnimation 2s ease-in-out infinite;
+}
+
+@keyframes sunnyAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    background-color: #fddb3a;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rainyAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    background-color: #A1C9FF;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cloudyAnimation {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    background-color: #DCDCDC;
+    transform: rotate(-2deg);
+  }
+}
